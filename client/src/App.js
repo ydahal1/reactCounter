@@ -21,6 +21,12 @@ const counterStyle = {
   fontWeight: "bold"
 };
 
+const negativeCounterStyle = {
+  fontSize: "265px",
+  fontWeight: "bold",
+  color: "red"
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -56,7 +62,11 @@ class App extends Component {
   render() {
     return (
       <div style={divStyle}>
-        <div style={counterStyle}>{this.state.counter}</div>
+        <div
+          style={this.state.counter >= 0 ? counterStyle : negativeCounterStyle}
+        >
+          {this.state.counter}
+        </div>
         <button
           style={btnDiv}
           className="btn btn-success"
